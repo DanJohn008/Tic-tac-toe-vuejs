@@ -3,7 +3,7 @@
         <v-layout row>
             <v-flex xs4>
                 <v-card dark tile flat>
-                    <v-card-text>A1</v-card-text>
+                    <v-card-text @click="play">{{ cross }}</v-card-text>
                 </v-card>
             </v-flex>
             <v-flex xs4>
@@ -46,8 +46,8 @@
                 </v-card>
             </v-flex>
             <v-flex xs4>
-                <v-card dark>
-                    <v-card-text>C3 </v-card-text>
+                <v-card dark tile flat>
+                    <v-card-text>C3</v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -56,9 +56,16 @@
 
 <script>
     export default {
-        data: () => ({
-            msg: 'test'
-        })
+        data: function() {
+            return {
+                cross: '0'
+            };
+        },
+        methods: {
+            play : function () {
+                return this.cross =  'X'
+            }
+        }
     }
 </script>
 
