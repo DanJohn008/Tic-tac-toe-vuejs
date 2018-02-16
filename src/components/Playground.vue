@@ -3,51 +3,51 @@
         <v-layout row>
             <v-flex xs4>
                 <v-card dark tile flat>
-                    <v-card-text @click="play">{{ cross }}</v-card-text>
+                    <v-card-text @click="play" id="A1">{{ cross }}</v-card-text>
                 </v-card>
             </v-flex>
             <v-flex xs4>
                 <v-card dark tile flat>
-                    <v-card-text>A2</v-card-text>
+                    <v-card-text @click="play" id="A2">{{ cross }}</v-card-text>
                 </v-card>
             </v-flex>
             <v-flex xs4>
                 <v-card dark tile flat>
-                    <v-card-text>A3</v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
-        <v-layout row>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text>B1</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text>B2</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text>B3</v-card-text>
+                    <v-card-text id="A3">A3</v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
         <v-layout row>
             <v-flex xs4>
                 <v-card dark tile flat>
-                    <v-card-text>C1</v-card-text>
+                    <v-card-text id="B1">B1</v-card-text>
                 </v-card>
             </v-flex>
             <v-flex xs4>
                 <v-card dark tile flat>
-                    <v-card-text>C2</v-card-text>
+                    <v-card-text id="B2">B2</v-card-text>
                 </v-card>
             </v-flex>
             <v-flex xs4>
                 <v-card dark tile flat>
-                    <v-card-text>C3</v-card-text>
+                    <v-card-text id="B3">B3</v-card-text>
+                </v-card>
+            </v-flex>
+        </v-layout>
+        <v-layout row>
+            <v-flex xs4>
+                <v-card dark tile flat>
+                    <v-card-text id="C1">C1</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex xs4>
+                <v-card dark tile flat>
+                    <v-card-text id="C2">C2</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex xs4>
+                <v-card dark tile flat>
+                    <v-card-text id="C3">C3</v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
