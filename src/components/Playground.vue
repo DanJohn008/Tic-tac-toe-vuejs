@@ -5,7 +5,7 @@
                 <div v-for="item in items" :key="item">
                     <v-flex xs4>
                         <v-card dark tile flat>
-                            <v-card-text @click="play">{{ item.col + itemrow.row }}</v-card-text>
+                            <v-card-text :id="item.col+itemrow.row" @click="play">{{ block }}</v-card-text>
                         </v-card>
                     </v-flex>
                 </div>
@@ -28,11 +28,13 @@
                     {row: "B"},
                     {row: "C"},
                 ],
+                block: "??",
             }
         },
         methods: {
-            play : function () {
-                return this.cross =  'X'
+            play : function (event) {
+                alert(event.target.id);
+                //return this.block = 'X'
             }
         }
     }
