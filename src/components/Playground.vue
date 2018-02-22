@@ -1,65 +1,34 @@
 <template>
     <v-container grid>
-        <v-layout row>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text @click="play" id="A1">{{ cross }}</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text @click="play" id="A2">{{ cross }}</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text id="A3">A3</v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
-        <v-layout row>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text id="B1">B1</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text id="B2">B2</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text id="B3">B3</v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
-        <v-layout row>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text id="C1">C1</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text id="C2">C2</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs4>
-                <v-card dark tile flat>
-                    <v-card-text id="C3">C3</v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
+        <div v-for="itemrow in itemrows" :key="itemrow">
+            <v-layout row>
+                <div v-for="item in items" :key="item">
+                    <v-flex xs4>
+                        <v-card dark tile flat>
+                            <v-card-text @click="play">{{ item.col + itemrow.row }}</v-card-text>
+                        </v-card>
+                    </v-flex>
+                </div>
+            </v-layout>
+        </div>
     </v-container>
 </template>
 
 <script>
     export default {
-        data: function() {
+        data () {
             return {
-                cross: '0'
-            };
+                items: [
+                    {col: "1"},
+                    {col: "2"},
+                    {col: "3"},
+                ],
+                itemrows: [
+                    {row: "A"},
+                    {row: "B"},
+                    {row: "C"},
+                ],
+            }
         },
         methods: {
             play : function () {
