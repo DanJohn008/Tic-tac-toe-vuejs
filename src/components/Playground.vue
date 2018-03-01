@@ -4,9 +4,9 @@
             <v-layout row>
                 <div v-for="item in items" :key="item">
                     <v-flex xs4>
-                        <v-card dark tile flat>
-                            <v-card-text :id="item.col+itemrow.row" @click="play">{{ block }}</v-card-text>
-                        </v-card>
+                        <v-btn flat icon :id="item.col+itemrow.row" @click="play($event)">
+                            <v-icon>{{ block }}</v-icon>
+                        </v-btn>
                     </v-flex>
                 </div>
             </v-layout>
@@ -28,13 +28,15 @@
                     {row: "B"},
                     {row: "C"},
                 ],
-                block: "??",
+                block: "android",
             }
         },
         methods: {
             play : function (event) {
-                alert(event.target.id);
-                //return this.block = 'X'
+                /* eslint-disable no-console */
+                console.log(event);
+                event.target.textContent = "X";
+                /* eslint-enable no-console */
             }
         }
     }
