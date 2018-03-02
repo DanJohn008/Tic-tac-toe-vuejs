@@ -1,7 +1,7 @@
 <template>
     <v-container grid>
         <div v-for="itemrow in itemrows" :key="itemrow">
-            <v-layout row>
+                <v-layout row>
                 <div v-for="item in items" :key="item">
                     <v-flex xs4>
                         <v-btn flat icon :id="item.col+itemrow.row" @click="play($event)">
@@ -29,14 +29,17 @@
                     {row: "C"},
                 ],
                 block: "android",
+                usermark : "O",
             }
         },
         methods: {
             play : function (event) {
                 /* eslint-disable no-console */
                 console.log(event);
-                event.target.textContent = "X";
                 /* eslint-enable no-console */
+                this.usermark = (this.usermark === "X") ? "O" : "X";
+                event.target.textContent = this.usermark;
+
             }
         }
     }
