@@ -1,8 +1,8 @@
 <template>
     <v-container grid>
-        <div v-for="itemrow in itemrows" :key="itemrow">
+        <div v-for="itemrow in itemrows" :key="itemrow.row">
                 <v-layout row>
-                <div v-for="item in items" :key="item">
+                <div v-for="item in items" :key="item.col">
                     <v-flex xs4>
                         <v-btn flat icon :id="item.col+itemrow.row" @click="play($event)">
                             <v-icon>{{ block }}</v-icon>
@@ -39,7 +39,6 @@
                 /* eslint-enable no-console */
                 this.usermark = (this.usermark === "X") ? "O" : "X";
                 event.target.textContent = this.usermark;
-
             }
         }
     }
