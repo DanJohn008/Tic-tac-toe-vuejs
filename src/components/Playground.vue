@@ -4,7 +4,7 @@
                 <v-layout row>
                 <div v-for="item in items" :key="item.col">
                     <v-flex xs4>
-                        <v-btn flat icon :id="item.col+itemrow.row" @click="play($event)">
+                        <v-btn flat icon ref="blockSectionCell" :id="item.col+itemrow.row" @click="play($event)">
                             <v-icon>{{ block }}</v-icon>
                         </v-btn>
                     </v-flex>
@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        data () {
+        data() {
             return {
                 items: [
                     {col: "1"},
@@ -33,12 +33,17 @@
             }
         },
         methods: {
-            play : function (event) {
-                /* eslint-disable no-console */
-                console.log(event);
-                /* eslint-enable no-console */
+            play: function(event) {
                 this.usermark = (this.usermark === "X") ? "O" : "X";
                 event.target.textContent = this.usermark;
+                this.checkBlock(event.target.parentElement.id);
+            },
+            checkBlock: function(newClickedId) {
+                this.$refs.blockSectionCell.filter(function (value) {
+                    /* eslint-disable no-console */
+                    console.log(value.$el.id + ' - ' + value.$el.innerText + ' - Clicked on -> ' + newClickedId);
+                    /* eslint-enable no-console */
+                });
             }
         }
     }
