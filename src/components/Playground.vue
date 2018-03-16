@@ -29,23 +29,30 @@
                     {row: "C"},
                 ],
                 block: "android",
-                usermark : "O",
+                usermark: "O",
+                gameMap: [],
+                currentActiveCellId: "",
             }
         },
         methods: {
             play: function(event) {
                 this.usermark = (this.usermark === "X") ? "O" : "X";
                 event.target.textContent = this.usermark;
-                this.checkBlock(this.usermark, event.target.parentElement.id);
+                this.currentActiveCellId = event.target.parentElement.id;
+                this.getBlockGrid();
+                this.matchWin();
             },
-            checkBlock: function(userMark, userId) {
-                /* eslint-disable no-console */
-                console.log('check for - ' + userMark + ' from ' + userId);
+            getBlockGrid: function() {
                 let gameMap = [];
                 this.$refs.blockSectionCell.filter(function (value) {
                     gameMap[value.$el.id] = value.$el.innerText;
                 });
-                console.log(gameMap);
+                this.gameMap = gameMap;
+            },
+            matchWin: function() {
+                /* eslint-disable no-console */
+                console.log('check for - ' + this.usermark + ' from ' + this.currentActiveCellId);
+                console.log(this.gameMap);
                 /* eslint-enable no-console */
             }
         }
