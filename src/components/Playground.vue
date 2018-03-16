@@ -36,14 +36,17 @@
             play: function(event) {
                 this.usermark = (this.usermark === "X") ? "O" : "X";
                 event.target.textContent = this.usermark;
-                this.checkBlock(event.target.parentElement.id);
+                this.checkBlock(this.usermark, event.target.parentElement.id);
             },
-            checkBlock: function(newClickedId) {
+            checkBlock: function(userMark, userId) {
+                /* eslint-disable no-console */
+                console.log('check for - ' + userMark + ' from ' + userId);
+                let gameMap = [];
                 this.$refs.blockSectionCell.filter(function (value) {
-                    /* eslint-disable no-console */
-                    console.log(value.$el.id + ' - ' + value.$el.innerText + ' - Clicked on -> ' + newClickedId);
-                    /* eslint-enable no-console */
+                    gameMap[value.$el.id] = value.$el.innerText;
                 });
+                console.log(gameMap);
+                /* eslint-enable no-console */
             }
         }
     }
