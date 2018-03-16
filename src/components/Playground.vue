@@ -51,7 +51,18 @@
             },
             matchWin: function() {
                 /* eslint-disable no-console */
-                console.log('check for - ' + this.usermark + ' from ' + this.currentActiveCellId);
+                let currentActiveCol = this.currentActiveCellId.charAt(0),
+                    currentActiveRaw = this.currentActiveCellId.charAt(1);
+
+                // vertical check
+                this.itemrows.forEach( function(itemrow) {
+                    console.log('Need to check - ' + currentActiveCol + itemrow.row);
+                });
+                // horizontal check
+                this.items.forEach( function(item) {
+                    console.log('Need to check - ' + item.col + currentActiveRaw);
+                });
+                
                 console.log(this.gameMap);
                 /* eslint-enable no-console */
             }
